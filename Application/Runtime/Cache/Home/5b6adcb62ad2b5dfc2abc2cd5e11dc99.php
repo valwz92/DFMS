@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>装修记账</title>
-	<link rel="stylesheet" type="text/css" href="/Public/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/DFMS/Public/dist/css/bootstrap.min.css">
 	<style type="text/css">
 		*{ padding: 0; margin: 0; }
 		body{ background: #fff; font-family: "微软雅黑"; color: #333;}

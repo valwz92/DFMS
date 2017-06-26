@@ -1,9 +1,9 @@
-<?php
+﻿<?php
 return array(
 	//'配置项'=>'配置值'
 	//数据库配置信息
 	'DB_TYPE'	=>	'mysql',
-	'DB_HOST'	=>	'localhost',
+	'DB_HOST'	=>	'120.24.77.69',
 	'DB_NAME'	=>	'decorate',
 	'DB_USER'	=>	'root',
 	'DB_PWD'	=>	'120147',
