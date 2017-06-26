@@ -5,7 +5,7 @@ class ShowController extends Controller {
     public function index(){
     	Vendor('Mobile-Detect.Mobile_Detect');
 
-        $decoration = M('Decoration')->select();
+        $decoration = M('Decoration')->order("no_term")->select();
         $payment = M('Payment')->select();
         $all = 0;
         foreach ($decoration as &$d_v) {
