@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Magic Cube</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style>
+		/*#btns input{width: 60px; }*/
+	</style>
+</head>
+
+<body style="background:#22222;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<div id="mf" style="margin: 120px auto 80px;"></div>
+				<div id="btns" style="margin:50px auto 0px;">
+					<h4>基本操作</h4>
+					<input type="button" style="margin-top:10px; width: 50px;" value="y" class="btn btn-default">
+					<input type="button" style="margin-top:10px; width: 50px;" value="w" class="btn btn-default">
+					<input type="button" style="margin-top:10px; width: 50px;" value="b" class="btn btn-default">
+					<input type="button" style="margin-top:10px; width: 50px;" value="g" class="btn btn-default">
+					<input type="button" style="margin-top:10px; width: 50px;" value="r" class="btn btn-default">
+					<input type="button" style="margin-top:10px; width: 50px;" value="o" class="btn btn-default">
+					<br>
+					<input type="button" style="margin-top:10px; width: 50px;" value="y&#39;" class="btn btn-default">
+					<input type="button" style="margin-top:10px; width: 50px;" value="w&#39;" class="btn btn-default">
+					<input type="button" style="margin-top:10px; width: 50px;" value="b&#39;" class="btn btn-default">
+					<input type="button" style="margin-top:10px; width: 50px;" value="g&#39;" class="btn btn-default">
+					<input type="button" style="margin-top:10px; width: 50px;" value="r&#39;" class="btn btn-default">
+					<input type="button" style="margin-top:10px; width: 50px;" value="o&#39;" class="btn btn-default">
+				</div>
+			</div>
+			<div class="col-md-7">
+
+				<div id="cs">
+					<h4>整体操作</h4>
+					<input type="button" style="margin-top:10px" value="重置颜色" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="重置位置" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="随机打乱" class="btn btn-default">
+					<h4>二层转换</h4>
+					<input type="button" style="margin-top:10px" value="红右" onclick="r_r()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="红左" onclick="r_l()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="绿右" onclick="g_r()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="绿左" onclick="g_l()" class="btn btn-default">
+					<br>
+					<input type="button" style="margin-top:10px" value="橙右" onclick="o_r()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="橙左" onclick="o_l()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="蓝右" onclick="b_r()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="蓝左" onclick="b_l()" class="btn btn-default">
+					<h4>三层建十字</h4>
+					<input type="button" style="margin-top:10px" value="十字" onclick="cross()" class="btn btn-default">
+					<h4>三层换顶角</h4>
+					<input type="button" style="margin-top:10px" value="红" onclick="chg_r()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="绿" onclick="chg_g()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="橙" onclick="chg_o()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="蓝" onclick="chg_b()" class="btn btn-default">
+					<h4>三层转顶角</h4>
+					<input type="button" style="margin-top:10px" value="红右" onclick="rot_r_r()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="红左" onclick="rot_r_l()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="绿右" onclick="rot_g_r()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="绿左" onclick="rot_g_l()" class="btn btn-default">
+					<br>
+					<input type="button" style="margin-top:10px" value="橙右" onclick="rot_o_r()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="橙左" onclick="rot_o_l()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="蓝右" onclick="rot_b_r()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="蓝左" onclick="rot_b_l()" class="btn btn-default">
+					<h4>三层换侧面</h4>
+					<input type="button" style="margin-top:10px" value="红" onclick="chg_3_r()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="绿" onclick="chg_3_g()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="橙" onclick="chg_3_o()" class="btn btn-default">
+					<input type="button" style="margin-top:10px" value="蓝" onclick="chg_3_b()" class="btn btn-default">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	
+	
+
+<script type="text/javascript" src="Cube.js"></script>
+<script type="text/javascript">
+var cube=new Cube('mf');
+
+var aInt=document.getElementById('btns').getElementsByTagName('input');
+for(var i=0;i<aInt.length;i++){
+	aInt[i].onclick=function(){
+		cube.turn3(this.value);
+	}
+}
+
+document.onkeydown=function(event){
+	var e = event || window.event;
+	if(e && e.keyCode == 89){ // 按 y 
+		cube.turn3("y");
+	}
+	if(e && e.keyCode == 82){ // 按 r 
+		cube.turn3("r");
+	}
+	if(e && e.keyCode == 66){ // 按 b 
+		cube.turn3("b");
+	}
+	if(e && e.keyCode == 71){ // 按 g 
+		cube.turn3("g");
+	}
+	if(e && e.keyCode == 87){ // 按 w 
+		cube.turn3("w");
+	}
+	if(e && e.keyCode == 79){ // 按 o 
+		cube.turn3("o");
+	}
+	if(e && e.keyCode == 32){ // 按 空格 
+		cube.initL();
+	}
+};
+
+var aInt2=document.getElementById('cs').getElementsByTagName('input');
+aInt2[0].onclick=function(){
+	cube.initColor();
+};
+aInt2[1].onclick=function(){
+	cube.initL();
+};
+aInt2[2].onclick=function(){
+	cube.random();
+};
+
+var r_r = function(){cube.turn3s("y'gyg'yr'y'r");}
+var r_l = function(){cube.turn3s("yby'b'y'ryr'");}
+var g_r = function(){cube.turn3s("y'o'yoyg'y'g");}
+var g_l = function(){cube.turn3s("yr'y'ry'gyg'");}
+var o_r = function(){cube.turn3s("y'b'ybyoy'o'");}
+var o_l = function(){cube.turn3s("yg'y'gy'o'yo");}
+var b_r = function(){cube.turn3s("y'ryr'yby'b'");}
+var b_l = function(){cube.turn3s("yoy'o'y'b'yb");}
+
+var cross = function(){cube.turn3s("g'yr'y'rg");}
+
+var chg_r = function(){cube.turn3s("b'g'y'bygy'b'yb");}
+var chg_g = function(){cube.turn3s("roy'r'yo'y'ryr'");}
+var chg_o = function(){cube.turn3s("gby'g'yb'y'gyg'");}
+var chg_b = function(){cube.turn3s("o'r'y'oyry'o'yo");}
+
+var rot_r_r = function(){cube.turn3s("g'ygyg'yygyy");}
+var rot_r_l = function(){cube.turn3s("gy'g'y'gy'y'g'y'y'");}
+var rot_g_r = function(){cube.turn3s("oyo'yoyyo'yy");}
+var rot_g_l = function(){cube.turn3s("o'y'oy'o'y'y'oy'y'");}
+var rot_o_r = function(){cube.turn3s("byb'ybyyb'yy");}
+var rot_o_l = function(){cube.turn3s("b'y'by'b'y'y'by'y'");}
+var rot_b_r = function(){cube.turn3s("r'yryr'yyryy");}
+var rot_b_l = function(){cube.turn3s("ry'r'y'ry'y'r'y'y'");}
+
+var chg_3_r = function(){cube.turn3s("g'ygyg'yygy'gy'g'y'gy'y'g'y");}
+var chg_3_g = function(){cube.turn3s("oyo'yoyyo'y'o'y'oy'o'y'y'oy");}
+var chg_3_o = function(){cube.turn3s("byb'ybyyb'y'b'y'by'b'y'y'by");}
+var chg_3_b = function(){cube.turn3s("r'yryr'yyry'ry'r'y'ry'y'r'y");}
+</script>
+
+
+</body></html>
